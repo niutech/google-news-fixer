@@ -1,0 +1,79 @@
+﻿.gnf-added div[role="button"] {
+    display: none;
+}
+
+.gnf-head-0.gnf-hidden:not(.gnf-added), .gnf-head-0.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-1.gnf-visible:not(.gnf-added), .gnf-head-1.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-1.gnf-hidden:not(.gnf-added), .gnf-head-1.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-2.gnf-visible:not(.gnf-added), .gnf-head-2.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-2.gnf-hidden:not(.gnf-added), .gnf-head-2.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-3.gnf-visible:not(.gnf-added), .gnf-head-3.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-3.gnf-hidden:not(.gnf-added), .gnf-head-3.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-4.gnf-visible:not(.gnf-added), .gnf-head-4.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-4.gnf-hidden:not(.gnf-added), .gnf-head-4.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-5.gnf-visible:not(.gnf-added), .gnf-head-5.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-5.gnf-hidden:not(.gnf-added), .gnf-head-5.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-6.gnf-visible:not(.gnf-added), .gnf-head-6.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-6.gnf-hidden:not(.gnf-added), .gnf-head-6.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-7.gnf-visible:not(.gnf-added), .gnf-head-7.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-7.gnf-hidden:not(.gnf-added), .gnf-head-7.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-8.gnf-visible:not(.gnf-added), .gnf-head-8.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-8.gnf-hidden:not(.gnf-added), .gnf-head-8.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
+
+.gnf-head-9.gnf-visible:not(.gnf-added), .gnf-head-9.gnf-visible ~ div[jsmodel]:not(.gnf-added) {
+    display: flex;
+}
+
+.gnf-head-9.gnf-hidden:not(.gnf-added), .gnf-head-9.gnf-hidden ~ div[jsmodel]:not(.gnf-added) {
+    display: none;
+}
