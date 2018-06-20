@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Google News Fixer",
-  "short_name": "Google News Fixer",
+  "name": "Fixer for Google News",
+  "short_name": "Fixer for Google News",
   "description": "Fix Google News by adding your favorite topics, locations, sources, saved searches and removing unnecessary ones from its front page",
-  "version": "0.1",
+  "version": "0.2",
   "author": "niu tech",
   "homepage_url": "https://github.com/niutech/google-news-fixer",
   "icons": {
@@ -32,7 +32,7 @@
       "32": "img/icon32.png",
       "48": "img/icon48.png"
     },
-    "default_title": "Google News Fixer"
+    "default_title": "Fixer for Google News"
   },
   "permissions": [
     "activeTab",
