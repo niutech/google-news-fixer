@@ -1,5 +1,7 @@
 # Fixer for Google News
 
+[![Available in the Chrome Web Store](https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_340x96.png)](https://chrome.google.com/webstore/detail/fixer-for-google-news/kpdohggcmekapjgidoihadecgdohldnm)
+
 This Chrome extension fixes the inability to customize the new Google News front page by adding your favorite topics, locations, sources and saved searches to the main news feed, as well as removing unnecessary topics from it, like: Headlines, For you, U.S., World, Business, Technology, Entertainment, Sports, Science or Health. You can choose what to hide in the extension options.
 
 ## How it works
