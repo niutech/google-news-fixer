@@ -3,15 +3,17 @@
 (function () {
 
     var maxStories = 5;
-    var includedTopics = [true, true, true, true, true, true, true, true, true, true];
+    var includedTopics = {};
     var storiesSelector = 'main > c-wiz > div:first-child > div:nth-child(-n+5)';
     var targetSectionSelector = 'main > c-wiz > div';
     var topicsSelector = '#library a[href^="./topics"], #library a[href^="./publications"], #searches a[href^="./search"]';
     var titleSelector = 'h2';
+    var targetTitleSelector = 'main h2';
     var searchTitleSelector = 'main > c-wiz';
     var topicsUrl = '/my/library' + location.search;
     var searchesUrl = '/my/searches' + location.search;
     var options = {credentials: 'same-origin', cache: 'default'};
+    var alreadyRemovedTopics = false;
 
     if (location.pathname !== '/') {
         return; // Run only on the front page
@@ -23,16 +25,14 @@
 
     function process(text) {
         var html = new DOMParser().parseFromString(text, 'text/html');
-        var topics = html.documentElement.querySelectorAll(topicsSelector);
-        topics.forEach(function (topic) {
+        html.documentElement.querySelectorAll(topicsSelector).forEach(function (topic) {
             fetch(topic.href, options).then(convert).then(function (text) {
                 var html = new DOMParser().parseFromString(text, 'text/html');
                 // Get source title
                 var titleElement = html.documentElement.querySelector(titleSelector);
                 var title = titleElement ? titleElement.innerText : html.documentElement.querySelector(searchTitleSelector).dataset.nQ;
                 // Clone heading
-                var targetHeading = document.querySelector('h3').parentNode.parentNode.cloneNode(true);
-                targetHeading.classList.remove('gnf-head-0', 'gnf-visible', 'gnf-hidden');
+                var targetHeading = document.querySelector(targetTitleSelector).parentNode.parentNode.cloneNode(true);
                 targetHeading.classList.add('gnf-added');
                 // Prepare title
                 var targetTitleLinks = targetHeading.querySelectorAll('a');
@@ -49,10 +49,16 @@
                     story.classList.add('gnf-added');
                     targetSection.appendChild(story);
                 });
-                // Remove excluded topics
-                var targetHeadings = document.querySelectorAll('.' + document.querySelector('h3').parentNode.parentNode.className.replace(/\s+/g, '.') + ':not([class*="gnf-head-"])');
-                for (var i = 0; i < targetHeadings.length && i < includedTopics.length; i++) {
-                    targetHeadings[i].classList.add('gnf-head-' + i, includedTopics[i] ? 'gnf-visible' : 'gnf-hidden');
+                // Update topics & remove excluded ones
+                if (!alreadyRemovedTopics) {
+                    var newIncludedTopics = {};
+                    document.querySelectorAll('.' + document.querySelector(targetTitleSelector).parentNode.parentNode.className.replace(/\s+/g, '.') + ':not(.gnf-added)').forEach(function (el, i) {
+                        var key = el.querySelector(targetTitleSelector).innerText.trim();
+                        newIncludedTopics[key] = typeof includedTopics[key] === 'boolean' ? includedTopics[key] : true;
+                        el.classList.add('gnf-head-' + i, newIncludedTopics[key] ? 'gnf-visible' : 'gnf-hidden');
+                    });
+                    chrome.storage.sync.set({maxStories: maxStories, includedTopics: newIncludedTopics});
+                    alreadyRemovedTopics = true;
                 }
             });
         });
@@ -60,7 +66,7 @@
 
     function init(config) {
         maxStories = config.maxStories || maxStories;
-        includedTopics = config.includedTopics || includedTopics;
+        includedTopics = Object.prototype.toString.call(config.includedTopics) === '[object Object]' && config.includedTopics || includedTopics;
         fetch(topicsUrl, options).then(convert).then(process);
         fetch(searchesUrl, options).then(convert).then(process);
     }

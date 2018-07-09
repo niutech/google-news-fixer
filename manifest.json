@@ -3,9 +3,8 @@
   "name": "Fixer for Google News",
   "short_name": "Fixer for Google News",
   "description": "Fix Google News by adding your favorite topics, locations, sources, saved searches and removing unnecessary ones from its front page",
-  "version": "0.2",
+  "version": "0.3",
   "author": "niu tech",
-  "homepage_url": "https://github.com/niutech/google-news-fixer",
   "icons": {
     "16": "img/icon16.png",
     "32": "img/icon32.png",
