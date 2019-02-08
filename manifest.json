@@ -3,8 +3,14 @@
   "name": "Fixer for Google News",
   "short_name": "Fixer for Google News",
   "description": "Fix Google News by adding your favorite topics, locations, sources, saved searches and removing unnecessary ones from its front page",
-  "version": "0.3",
+  "version": "0.4",
   "author": "niu tech",
+  "applications": {
+    "gecko": {
+      "id": "{9201710e-aad1-4eb1-8711-6a032a77e72e}",
+      "strict_min_version": "57.0"
+    }
+  },
   "icons": {
     "16": "img/icon16.png",
     "32": "img/icon32.png",
@@ -35,7 +41,8 @@
   },
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "https://news.google.com/*"
   ],
   "options_ui": {
     "page": "options.html",
